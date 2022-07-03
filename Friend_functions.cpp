@@ -8,7 +8,7 @@ class Rectangle {
     Rectangle() {}
     Rectangle (int x, int y) : width(x), height(y) {}
     int area() {return width * height;}
-    friend Rectangle duplicate (const Rectangle&);
+    friend Rectangle duplicate (const Rectangle&); // friend function is defined with friend keyword.
 };
 
 Rectangle duplicate (const Rectangle& param)

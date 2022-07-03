@@ -4,8 +4,8 @@ using namespace std;
 void main()
 {
    int k = 3, n = 4;
-   int Stdnt_Cr_limit = [40, 50, 30, 80], Subs_cr = [20, 30, 25], Sub_cr = sorted(Subs_cr);
-    print(Sub_cr)
+   int Stdnt_Cr_limit = {40, 50, 30, 80}, Subs_cr = {20, 30, 25}, Sub_cr = sorted(Subs_cr);
+    cout<<Sub_cr;
 
     int count = 0, total_count = 0, total = 0;
 
