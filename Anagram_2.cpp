@@ -5,6 +5,7 @@ int main()
 {
     char str1[20], str2[20];
     int len1, len2, i, j, found=0, not_found=0;
+    cout<<"\nChecking the Anagram strings";
     cout<<"Enter the First String: ";
     cin>>str1;
     cout<<"Enter the Second String: ";
