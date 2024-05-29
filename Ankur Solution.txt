@@ -1,0 +1,82 @@
+this is related to order processing :
+ 
+#include <iostream>
+#include <string>
+ 
+using namespace std;
+ 
+// Base class representing a generic order
+class Order {
+protected:
+    int orderID;
+    int customerID;
+    string orderDate;
+ 
+public:
+    // Constructor to initialize generic order attributes
+    Order(int orderId, int customerId, string date)
+        : orderID(orderId), customerID(customerId), orderDate(date) {}
+ 
+    // Virtual function for order processing
+    virtual void processOrder() {
+        // Generic order processing logic
+        cout << "Processing generic order #" << orderID << endl;
+    }
+};
+ 
+// Derived class for electronics orders
+class ElectronicsOrder : public Order {
+private:
+    string deviceType;
+ 
+public:
+    // Constructor to initialize electronics order attributes
+    ElectronicsOrder(int orderId, int customerId, string date, string type)
+        : Order(orderId, customerId, date), deviceType(type) {}
+ 
+    // Overridden function for electronics order processing
+    void processOrder() override {
+        // Specialized processing for electronics orders
+        cout << "Processing electronics order #" << orderID << " for " << deviceType << endl;
+    }
+};
+ 
+// Derived class for book orders
+class BookOrder : public Order {
+private:
+    string bookTitle;
+ 
+public:
+    // Constructor to initialize book order attributes
+    BookOrder(int orderId, int customerId, string date, string title)
+        : Order(orderId, customerId, date), bookTitle(title) {}
+ 
+    // Overridden function for book order processing
+    void processOrder() override {
+        // Specialized processing for book orders
+        cout << "Processing book order #" << orderID << " for " << bookTitle << endl;
+    }
+};
+ 
+// Function to process a customer order polymorphically
+void processCustomerOrder(Order* order) {
+    // Method overloading handles different order types
+    order->processOrder();
+}
+ 
+int main() {
+    // Example usage
+    // Generic order
+    Order genericOrder(1, 101, "2023-01-01");
+    // Specialized electronics order
+    ElectronicsOrder electronicsOrder(2, 102, "2023-01-02", "Smartphone");
+    // Specialized book order
+    BookOrder bookOrder(3, 103, "2023-01-03", "The Great Gatsby");
+ 
+    // Process orders polymorphically
+    processCustomerOrder(&genericOrder);
+    processCustomerOrder(&electronicsOrder);
+    processCustomerOrder(&bookOrder);
+ 
+    return 0;
+}

@@ -14,7 +14,7 @@ class Output {
     static void print (int i);
 };
 
-void Output::print (int i) {
+void Output::print (int i) { //function output, created outside of the class.
   cout << i << '\n';
 }
 

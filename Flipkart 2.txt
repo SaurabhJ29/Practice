@@ -1,0 +1,36 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include<iostream>
+using namespace std;
+class Order
+{
+  public:
+   int price;
+   int orderID;
+   int customerID;
+   int orderDate;
+   virtual void processOrder(int customerID,int orderID)
+   {
+       cout<<"The order with orderID "<<orderID<<"for customerID "<<customerID<<"has been placed"<<endl;
+   }
+};
+class ElectronicsOrder: public Order
+{
+    public:
+    string deviceType;
+    void processOrder(int customerID,int orderID)
+   {
+       cout<<"The order with orderID "<<orderID<<" and deviceType "<<deviceType<<" for customerID "<<customerID<<" has been placed"<<endl;
+   }
+};
+int main() {
+    ElectronicsOrder tv;
+    tv.customerID = 10;
+    tv.orderID = 1000;
+    tv.deviceType = "Telivison";
+    //tv.price = 1000000;
+    tv.processOrder(10,1000);
+
+ 
+    return 0;
+}

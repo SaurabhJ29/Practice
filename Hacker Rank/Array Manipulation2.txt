@@ -1,0 +1,36 @@
+ *  2. 2D_INTEGER_ARRAY queries
+ */
+
+long arrayManipulation(int n, vector<vector<int>> queries) {
+    long res[n], max;
+    
+    if(queries.empty()){
+        return -1;
+    }
+    else{
+    for(int i = 0; i<n; i++) res[i]=0;
+    
+    int rowSize=queries.size(), colSize=queries[0].size();
+    
+    if(rowSize && colSize>=3){
+        for(int i=0; i<rowSize; i++){
+            if(queries[i][0]>0 && queries[i][1]>0){
+                for(int m = queries[i][0] ; m<=queries[i][1] && m<=n; m++){
+                    res[m] += queries[i][2];
+                }
+            }
+        }
+    }
+    
+    if(n){
+        max =res[0];
+        for (int i =1; i<n; i++) {
+            if(max<res[i]){
+                max = res[i];
+                }
+            }
+        }
+    }
+    
+    return max;
+}

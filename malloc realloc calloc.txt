@@ -1,0 +1,26 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <malloc.h>
+
+int main()
+{
+    int * x = (int *)malloc(256);
+    printf("x<<std::endl;
+    printf(""Size of x is: "<<sizeof(x); //size of x is remaining 8 bytes.
+    //Because it is a pointer pointing to allocated memory.
+    printf("std::endl;
+    int *ptr = (int *)malloc(4*sizeof(*ptr));
+    printf("ptr<<std::endl;
+    printf(""Size of ptr is: "<<sizeof(ptr);
+    size_t size;
+    size = _msize( ptr );
+    
+    int *p2 = (int *)calloc(10, sizeof(int));
+    printf(""\n"<<p2;
+    printf(""\n"<<p2[2];
+    
+    ptr = (int *)realloc(ptr, 10*sizeof(*ptr));
+    printf(""\n"<<ptr;
+
+    return 0;
+}

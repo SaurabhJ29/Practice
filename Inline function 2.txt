@@ -1,0 +1,46 @@
+one more example:
+ 
+#include <iostream>
+ 
+// Inline function called by reference
+inline void inlineFunctionByReference(int &num) {
+    std::cout << "Inside inlineFunctionByReference\n";
+    num = num * 2; // Modify the value of the parameter
+}
+ 
+// Inline function called by value
+inline void inlineFunctionByValue(int num) {
+    std::cout << "Inside inlineFunctionByValue\n";
+    num = num * 2; // Modify a local copy of the parameter
+}
+ 
+// Normal function called by value
+void normalFunction(int num) {
+    std::cout << "Inside normalFunction\n";
+    num = num * 2; // Modify a local copy of the parameter
+}
+ 
+int main() {
+    int x = 5;
+ 
+    // Call inline function by reference
+    inlineFunctionByReference(x);
+    std::cout << "After calling inlineFunctionByReference, x = " << x << "\n";
+ 
+    // Call inline function by value
+    inlineFunctionByValue(x);
+    std::cout << "After calling inlineFunctionByValue, x = " << x << "\n";
+ 
+    // Call normal function by value
+    normalFunction(x);
+    std::cout << "After calling normalFunction, x = " << x << "\n";
+ 
+    return 0;
+}
+ 
+ 
+In this example, I added a normalFunction that takes an integer by value.
+The usage of this function is similar to the inlineFunctionByValue.
+Note that the normalFunction is not declared as inline,
+so the compiler will make its own decision on whether to inline it or not based on
+its optimization settings.

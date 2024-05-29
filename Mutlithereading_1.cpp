@@ -12,7 +12,7 @@ void foo(int Z)		// A dummy function
 
 class thread_obj { 	// A callable object
 public:
-	void operator()(int x) // 
+	void operator()(int x) // operator overloading
 	{
 		for (int i = 0; i < x; i++)
 			cout << "\nThread using function object as callable: "<<i<<"\n";

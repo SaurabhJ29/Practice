@@ -1,0 +1,29 @@
+#include <iostream> #include <string>
+
+
+// Base Order class class Order { public: virtual
+void processOrder() {
+std::cout << "Processing generic order..." << std::endl;
+}
+};
+// Derived class for ElectronicsOrder class ElectronicsOrder : public Order
+{
+public:
+void processOrder() override {
+std::cout << "Processing electronics order..." << std::endl;
+// Add specific electronics order processing logic here }
+
+// Overloaded method for electronics with different parameters
+void processOrder(const std::string& address) {
+std::cout << "Processing electronics order to address: " << address << std::endl;
+// Add specific electronics order processing logic for address 
+} 
+};
+
+// Derived class for BookOrder 
+class BookOrder : public Order {
+public:
+void processOrder() override {
+std::cout << "Processing book order..." << std::endl; 
+// Add specific book order processing logic here } // Overloaded method for
+};

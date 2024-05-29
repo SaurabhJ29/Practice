@@ -1,0 +1,29 @@
+class B {
+private:
+  int i;
+public:
+  B(int i_): i(i_) {}
+  int get_i() {return i;}
+};
+
+class C {
+public:
+  B b;
+  C(int i): b(i) {}
+  B get_b() {return b;}
+};
+
+class D {
+public:
+  static std::string f1(B b) {
+    return "f1B";
+  }
+  static std::string f1(int b) {
+    return "f1int";
+  }
+  static std::string f2() {
+    C c(42);
+    return f1(c.get_b());
+  }
+
+};

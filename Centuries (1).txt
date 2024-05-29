@@ -1,0 +1,82 @@
+//no of centurires by Saurabh Jain
+#include <iostream>
+#include <string>
+#include <map>
+#include <vector>
+#include <fstream>
+#include <cstdlib>
+
+class Score { //class
+private:
+  std::string country;
+  int score;
+public:
+  Score(std::string c, int s) { //Constructor taking country name and score of a player.
+        country = c;
+        score = s;
+        std::cout<<"\nThe player score for the country is: ";
+        std::cout << c << ", " << s << std::endl;
+    }
+
+  std::string getCountry() {return country;} //method to retun the country name
+  int getScore() {return score;} //method for returning the score because Constructor does not return.
+};
+
+/**
+ * Read `country: score` pairs from infile and return a list of pairs
+ * Stop when `infile` reaches EOF
+ */
+void readScores(std::vector<Score> &scores) { //scores vector of Score (user-defined) data type
+  int prompt=1, runs;
+  std::string country;
+  std::cout<<"\nFirst prompt is: "<<prompt;
+    
+  while(prompt==1) {
+    std::cout<<"\nEnter the country name: ";
+    std::cin>>country;
+    std::cout<<"\nEnter the runs : ";
+    std::cin >> runs;
+    Score score(country, runs); //score object of Score data type is defined, which is taking two parameters: country name and runs.
+    scores.push_back(score); // pushing element into scores vector
+    std::cout<<"To add more runs for the player, enter 1 else enter 0 \n";
+    std::cin>>prompt;
+  }
+  
+ /*   for (int i = 0; i < scores.size(); i++) {
+        std::cout<<scores[i] << ", ";
+    } */
+  
+}
+//method to calculate no. of centuries
+int noCenturyCountryCount(std::vector<Score> &scores) { //scores here is a vector of Score (user-defined) data type
+  int noCenturyCount = 0;
+
+  for(int i=0; i<scores.size(); i++) { //looping around scores for country.
+    const std::string &country = scores[i].getCountry();
+
+    int centuries = 0;
+    for(int j=i; j<scores.size(); j++) { //looping around scores (score vector) for runs.
+      if (scores[j].getCountry() == country) {
+        if (scores[j].getScore() <= 100) {
+        	break;
+        }
+	    else{
+	        centuries++;}
+        }
+    }
+
+    if (centuries != 0) {
+      noCenturyCount++;
+    }
+  }
+  return noCenturyCount;
+}
+
+int main () {
+  std::vector<Score> scores;
+  std::cout<<"\nEnter the country name and score of the player \n";
+  readScores(scores);
+  int noCenturyCount = noCenturyCountryCount(scores);
+  std::cout <<"\nNo. of centuries are: "<< noCenturyCount << std::endl;
+  return 0;
+}

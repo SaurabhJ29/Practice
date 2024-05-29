@@ -1,0 +1,39 @@
+/*Function Overriding:
+ 
+When a function in the base class is marked as virtual, it signals to the compiler that this function can be overridden by derived classes.
+Derived classes can provide their own implementation of the virtual function with the same signature.
+cpp */
+ 
+class BaseClass {
+public:
+    virtual void display() {
+        // Base class implementation
+    }
+};
+ 
+class DerivedClass : public BaseClass {
+public:
+    void display() override {
+        // Derived class implementation
+    }
+};
+Dynamic Binding:
+ 
+The virtual keyword enables dynamic binding, meaning that the decision of which function to call is made at runtime, based on the actual type of the object.
+cpp
+ 
+BaseClass* obj = new DerivedClass();
+obj->display(); // Calls the display() method of DerivedClass at runtime
+Polymorphism:
+ 
+virtual functions facilitate polymorphism, allowing code to be more flexible and adaptable. It enables the use of pointers or references to the base class type, while still allowing the correct derived class method to be called.
+cpp
+ 
+void someFunction(BaseClass* obj) {
+    obj->display(); // Calls the appropriate display() method based on the actual type
+}
+ 
+BaseClass* obj1 = new DerivedClass();
+someFunction(obj1);
+
+Without the virtual keyword, the function call would be resolved at compile-time (early binding), and the base class implementation would always be called, regardless of the actual object type. The virtual keyword introduces the concept of late binding, ensuring that the correct function is called based on the actual object type at runtime.

@@ -1,0 +1,37 @@
+// standard template library STL
+ 
+//Container: vector ,list,dequeue,queue,stack,set,amp
+// iterators :
+// Algorthm
+// Function Object
+ 
+// vector,iterator and algorithm
+#include<iostream>
+#include <vector>
+#include <algorithm>
+ 
+ 
+int main(){
+ 
+    // create a vector and initialising it
+std::vector<int> numbers={5,2,8,3,1,7,4,6};
+ 
+// use the iterator to print the vector elements
+std::cout<< "Original Vector is :";
+for (auto it=numbers.begin(); it!=numbers.end();++it){
+    std::cout<< *it<< " ";
+}
+std::cout<<std::endl;
+ 
+//sorting the vector
+std::sort(numbers.begin(),numbers.end());
+ 
+// use the iterator to print the vector elements
+std::cout<< "Sorted Vector is :";
+for (auto it=numbers.begin(); it!=numbers.end();++it){
+    std::cout<< *it<< " ";
+}
+std::cout<<std::endl;
+ 
+return 0;
+}

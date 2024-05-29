@@ -1,0 +1,60 @@
+// //In C++, a virtual function is a member function that
+// is declared within a base class and is marked with
+// the virtual keyword. Virtual functions are used in
+// the context of polymorphism, allowing derived classes
+// to provide their own implementation of the function.
+// When a virtual function is called through a pointer or
+// reference to the base class, the actual implementation
+// that gets executed is determined at runtime based on
+// the type of the object being pointed to or referenced.
+ 
+#include <iostream>
+ 
+// Base class
+class Shape {
+public:
+    // Virtual function
+    virtual void draw() {
+        std::cout << "Drawing a shape." << std::endl;
+    }
+};
+ 
+// Derived class 1
+class Circle : public Shape {
+public:
+    // Override the virtual function
+    void draw() override {
+        std::cout << "Drawing a circle." << std::endl;
+    }
+};
+ 
+// Derived class 2
+class Square : public Shape {
+public:
+    // Override the virtual function
+    void draw() override {
+        std::cout << "Drawing a square." << std::endl;
+    }
+};
+ 
+int main() {
+    // Creating objects of derived classes
+    Circle circle;
+    Square square;
+ 
+    // Using pointers to the base class to achieve polymorphism
+    Shape* shapePtr1 = &circle;		//upcasting. 
+    Shape* shapePtr2 = &square;
+
+   /* Upcasting is converting a derived class pointer to a base class pointer,
+while downcasting is the opposite */
+	// explicit downcasting from Shape to Circle.
+	Circle circle2 = (Circle*)(Shape);
+ 
+    // Calls the appropriate draw() based on the actual object type
+    shapePtr1->draw();  // Output: Drawing a circle.
+    shapePtr2->draw();  // Output: Drawing a square.
+ 
+    return 0;
+}
+ 

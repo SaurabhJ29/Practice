@@ -1,0 +1,51 @@
+#include <iostream>
+ 
+class Calculator{
+    private:
+    double result;
+ 
+    public:
+    Calculator():result(0.0){}
+ 
+    Calculator& add(double value){
+        result+=value;
+        return *this;
+    }
+ 
+ 
+    //create a template
+    template <typename ... Args>
+    Calculator& subtract(Args... values){
+        result-=(values + ...);
+        return *this;
+    }
+    Calculator& multiply(double value){
+        result*=value;
+        return *this;
+    }
+    Calculator& divide(double value){
+        if(value !=0.0){
+            result/=value;
+            }
+        else{
+            std::cout<< "Zero division error"<<std::endl;
+        }
+        return *this;
+    }
+ 
+ 
+    double getResult() const{
+        return result;
+    }
+};
+ 
+int main(){
+ 
+    Calculator calc;
+   
+ 
+    double finalResult=calc.add(5.0).subtract(3.0,2.0,1.0).multiply(2.0).divide(4.0).getResult();
+    std::cout<<"final result is :"<< finalResult<<std::endl;
+ 
+    return 0;
+}

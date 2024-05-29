@@ -1,0 +1,126 @@
+#include<iostream>
+#include<fstream>
+#include<stdio.h>
+ 
+using namespace std;
+ 
+//Employee class Declaration
+class Employee{
+    private:
+        int Id;
+        char Emp_Name[20];
+        float Emp_Salary;
+    public:
+        void read();
+        void display();
+        //return employee Id
+        int getEmpId()            { return Id;}
+        //return employee Emp_Salary
+        int getEmp_Salary()             { return Emp_Salary;}
+        //update employee Emp_Salary
+        void updateEmp_Salary(float s)  { Emp_Salary=s;}
+};
+ 
+//Take employee data
+void Employee::read(){
+    cout<<"Enter employee Id: ";
+    cin>>Id;
+    cout<<"Enter Emp_Name: ";
+    cin.ignore(1);
+    cin.getline(Emp_Name,20);
+    cout<<"Enter Employee Salary: ";
+    cin>>Emp_Salary;
+}
+ 
+//Display employee data
+void Employee::display()
+{
+    cout<<"\nThe Employee ID is: "<<Id<<" his name: "<<Emp_Name<<" and his salary is: "<<Emp_Salary<<endl;
+}
+
+//function to append record into file
+void appendToFille(){
+    Employee    x;
+    //Read employee record from user
+    x.read();
+}
+ 
+void displayAll(){
+    Employee    x;
+    cout<<"\nThe Employee details are: ";
+    x.display();
+}
+ 
+void searchForRecord(){
+    //read employee id
+    Employee    x;
+    int c;
+    int isFound=0;
+ 
+    cout<<"Enter employee Id: ";
+    cin>>c;
+}
+ 
+//Function to increase Emp_Salary
+void increaseEmp_Salary(){
+    //read employee id
+    Employee    x;
+    int c;
+    int isFound=0;
+    float sal;
+ 
+    cout<<"enter employee Id \n";
+    cin>>c;
+}
+ 
+//Insert record by assuming that records are in 
+//ascending order
+void insertRecord(){
+    //read employee record
+    Employee    x;
+    Employee newEmp;
+     
+    //Read record to insert
+    newEmp.read();
+    cout<<"Record inserted successfully."<<endl;
+}
+ 
+int main()
+{
+     char prompt;
+ 
+     do{
+     int n;
+ 
+     cout<<"ENTER CHOICE\n"<<"1.ADD AN EMPLOYEE\n"<<"2.DISPLAY\n"<<"3.SEARCH\n"<<"4.INCREASE EMP_SALARY\n"<<"5.INSERT RECORD\n";
+     cout<<"Make a choice: ";
+     cin>>n;
+ 
+     switch(n){
+          case 1:
+            appendToFille();
+            break;
+          case 2 :
+            displayAll();
+            break;
+          case 3:
+            searchForRecord();
+            break;
+        case 4:
+            increaseEmp_Salary();
+            break;
+        case 5:
+            insertRecord();
+            break;
+ 
+          default :
+                cout<<"Invalid Choice\n";
+     }
+ 
+     cout<<"Do you want to continue ? : Press Y to continue, any other key to quit: ";
+     cin>>prompt;
+ 
+     }while(prompt=='Y'||prompt=='y');
+     
+    return 0;
+}

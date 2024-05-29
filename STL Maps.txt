@@ -1,0 +1,86 @@
+#include <iostream>
+#include <vector>
+#include <list>
+#include <set>
+#include <map>
+ 
+int main() {
+    // Vector example
+    std::vector<int> myVector;
+    myVector.push_back(10);
+    myVector.push_back(20);
+    myVector.push_back(30);
+ 
+ /*   std::cout << "Vector Elements: ";
+    for (const auto& element : myVector) {
+        std::cout << element << " ";
+    }
+    std::cout << "\n\n"; */
+ 
+    // List example
+    std::list<std::string> myList;
+    myList.push_back("apple");
+    myList.push_back("banana");
+    myList.push_back("orange");
+ 
+ /*   std::cout << "List Elements: ";
+    for (const auto& element : myList) {
+        std::cout << element << " ";
+    }
+    std::cout << "\n\n"; */
+ 
+    // Set example
+    std::set<double> mySet;
+    mySet.insert(3.14);
+    mySet.insert(2.718);
+    mySet.insert(1.414);
+ 
+ /*   std::cout << "Set Elements: ";
+    for (const auto& element : mySet) {
+        std::cout << element << " ";
+    }
+    std::cout << "\n\n"; */
+ 
+    // Map example
+    std::map<std::string, std::vector<int>> myMap;
+    // myMap["one"] = 1;
+    // myMap["two"] = 2;
+    // myMap["three"] = 3;
+ 
+    myMap["Saurabh"]= {1, 2, 3}; //
+/*    myMap["Asha"].push_back(2);
+    myMap["Shekhar"].push_back(4); */
+    std::cout << "Map Elements: ";
+    for (const auto& pair : myMap) {
+ 
+        const std::string& name =pair.first;
+        const std::vector<int>& id =pair.second;
+ 
+        std::cout<<name<< "'s scores :";
+        for (int score:id){
+            std::cout<< score<<" ";
+ 
+        }
+        std::cout<<std::endl;
+    }
+    std::cout << "\n";
+    
+    std::map<std::vector<int>, std::string> myMap2;
+    
+    myMap2[{1, 2, 4}] = "Saurabh";
+    std::map<std::vector<int>, std::string>::iterator it = myMap2.begin();
+    
+    for (const auto& pair : myMap2) {
+ 
+        const std::string& name =pair.second;
+        const std::vector<int>& id =pair.first;
+        
+        for (int score:id){
+            std::cout<< score<<" ";
+ 
+        } 
+        std::cout<<" : "<<name<<std::endl;
+    }
+ 
+    return 0;
+}

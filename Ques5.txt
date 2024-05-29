@@ -1,0 +1,36 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <string.h>
+#include <memory.h>
+
+int f(int arr[], int len){
+    int i;
+    for (i=0; i<len; i++){
+        arr[i]++;
+    }
+}
+
+/*char *f(char *s){
+    if (s== "hello"){
+        return "yes";
+    }
+    else
+    return "no";
+}*/
+
+int main()
+{
+    //printf("%s\n", f("hello"));
+    int array[5] ={1, 2, 3, 4, 5};
+    f(array, 5);
+    printf("%d\n", array[0]);
+
+    return 1;
+}

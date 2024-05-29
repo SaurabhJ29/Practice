@@ -1,0 +1,30 @@
+#include <iostream>
+
+class Base1 {
+public: 
+  std::string f1(int a) {
+    return "f1b1";
+  }
+};
+
+class Base2 {
+public: 
+  std::string f1(int a) {
+    return "f1b2";
+  }
+};
+
+class Derived: public Base1, Base2 {
+public:
+  std::string f1(int a) {
+    return Base1::f1(a) + Base2::f1(a);
+  }
+};
+
+int main()
+{
+    Derived *d = new D();
+    d->f1(1);
+
+    return 0;
+}

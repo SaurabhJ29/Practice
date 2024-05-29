@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a, c, *b=&c; //When we do not allocate any address to a pointer, it gets initialized with NULL by default.
+    //int a=4;
+    cout<<b<<endl;
+    //*b = &a; //
+    //int *b = &a;
+    cout<<a <<" is a and b is: "<<b;
+
+    return 0;
+}

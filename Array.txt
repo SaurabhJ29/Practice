@@ -1,0 +1,19 @@
+#include <stdio.h>
+void printArray(int arr[], int n); //declartion of the function printArray.
+
+int main()
+{
+    int arr[6]={1, 2, 3, -1, -2, -3};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    printf("\nThe size of array is: %d", n);
+    printArray(arr, n);
+
+    return 0;
+}
+
+void printArray(int arr[], int n){ //defintion of the function printArray.
+
+    for(int i=0; i<n; i++){
+        printf("\nThe %d element of array is: %d", i, arr[i]);
+    }
+}
