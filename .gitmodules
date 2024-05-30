@@ -1,0 +1,6 @@
+[submodule "Cpp"]
+	path = Cpp
+	url = https://github.com/SaurabhJ29/Practice.git
+[submodule "Python"]
+	path = Python
+	url = https://github.com/SaurabhJ29/Practice.git
